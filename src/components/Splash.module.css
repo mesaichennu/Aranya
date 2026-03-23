@@ -2,13 +2,13 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: var(--forest);
+  background: #0a0a0a;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 28px;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
+  gap: 24px;
+  transition: opacity 0.9s ease, visibility 0.9s ease;
 }
 .hidden {
   opacity: 0;
@@ -16,68 +16,63 @@
   pointer-events: none;
 }
 
-.logo {
-  width: 160px;
-  height: 160px;
-}
-.logo svg {
-  width: 100%;
-  height: 100%;
-}
-
-.ring {
-  stroke-dasharray: 502;
-  stroke-dashoffset: 502;
-  animation: drawRing 1.2s ease forwards 0.2s;
-}
-.trunk {
-  stroke-dasharray: 300;
-  stroke-dashoffset: 300;
-  animation: drawRing 0.8s ease forwards 0.8s;
-}
-@keyframes drawRing {
-  to { stroke-dashoffset: 0; }
-}
-
-.leafItem {
+/* Logo image — scale up from small, fade in */
+.logoWrap {
   opacity: 0;
-  transform-origin: 50% 100%;
-  animation: growLeaf 0.4s ease forwards;
+  transform: scale(0.7);
+  animation: zoomIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
 }
-@keyframes growLeaf {
-  to { opacity: 1; }
+.logoImg {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  /* Glow pulse after appearing */
+  animation: zoomIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s,
+             glow 2s ease-in-out infinite 1.4s;
+  filter: drop-shadow(0 0 0px rgba(106, 176, 76, 0));
 }
 
-.title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3.2rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--leaf-light);
-  opacity: 0;
-  animation: fadeUp 0.7s ease forwards 2.6s;
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
-.sub {
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(106, 176, 76, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 28px rgba(106, 176, 76, 0.7));
+  }
+}
+
+/* Tagline fades up */
+.tagline {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.35em;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: rgba(168, 201, 127, 0.75);
   opacity: 0;
-  animation: fadeUp 0.7s ease forwards 2.9s;
+  animation: fadeUp 0.7s ease forwards 1.2s;
 }
+
+/* Growing bar */
 .bar {
   width: 0;
   height: 2px;
-  background: var(--leaf);
-  animation: growBar 1s ease forwards 3.1s;
+  background: linear-gradient(90deg, #6ab04c, #8cc63f);
   border-radius: 2px;
+  animation: growBar 1.2s ease forwards 1.5s;
 }
 
 @keyframes growBar {
-  to { width: 120px; }
+  to { width: 140px; }
 }
+
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
