@@ -1,0 +1,88 @@
+.section {
+  padding: 100px 6vw;
+  background: var(--forest);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.title { color: var(--cream) !important; }
+.sub   { color: rgba(255,255,255,0.65) !important; }
+
+.bgText {
+  position: absolute;
+  right: -40px;
+  bottom: -40px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18rem;
+  font-weight: 900;
+  color: rgba(255,255,255,0.025);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 60px;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 36px;
+  transition: background 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card:hover {
+  background: rgba(255,255,255,0.09);
+  transform: translateY(-4px);
+}
+.large {
+  grid-row: span 2;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.cardTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--leaf-light);
+  margin-bottom: 12px;
+}
+.cardDesc {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+}
+.quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.5);
+  margin-top: 24px;
+  line-height: 1.6;
+}
+.accent {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--leaf), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.card:hover .accent { opacity: 1; }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .large { grid-row: auto; }
+}

@@ -1,0 +1,99 @@
+.section {
+  padding: 100px 6vw;
+  background: linear-gradient(135deg, var(--forest) 0%, #1a3a0a 100%);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.title { color: white !important; margin: 0 auto 16px; }
+.sub   { color: rgba(255,255,255,0.65) !important; margin: 0 auto; }
+
+.circle1,
+.circle2 {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.05);
+  pointer-events: none;
+}
+.circle1 {
+  width: 600px; height: 600px;
+  top: -200px; right: -200px;
+}
+.circle2 {
+  width: 500px; height: 500px;
+  bottom: -250px; left: -250px;
+}
+
+.badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--amber);
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  justify-content: center;
+  margin: 48px auto;
+  box-shadow: 0 20px 60px rgba(232, 160, 32, 0.4);
+  animation: pulse 2.5s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 20px 60px rgba(232,160,32,0.4); transform: scale(1); }
+  50%      { box-shadow: 0 28px 80px rgba(232,160,32,0.55); transform: scale(1.03); }
+}
+
+.badgeMain {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+}
+.badgeYear {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+}
+.badgeSub {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  opacity: 0.9;
+}
+
+.infoGrid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+.infoItem { text-align: center; }
+.infoIcon  { font-size: 1.8rem; margin-bottom: 8px; }
+.infoTitle {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 4px;
+}
+.infoVal {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
